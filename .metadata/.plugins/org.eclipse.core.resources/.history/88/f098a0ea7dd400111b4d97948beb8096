@@ -1,0 +1,5 @@
+package com.finance.acoes.repository;
+
+public class AcoesRepository {
+
+}

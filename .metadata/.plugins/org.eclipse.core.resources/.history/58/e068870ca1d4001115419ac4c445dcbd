@@ -1,0 +1,10 @@
+package com.finance.cotacoes.dto;
+
+import java.math.BigDecimal;
+
+public class CotacaoDTO {
+	private String moeda;
+	private String nome;
+	private BigDecimal compra;
+	
+}

@@ -1,0 +1,40 @@
+package com.finance.cotacoes.service;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.finance.acoes.model.Acao;
+import com.finance.acoes.repository.AcoesRepository;
+import com.finance.cotacoes.dto.AcaoDTO;
+
+@Service
+public class AcoesService {
+	
+	@Autowired
+	private AcoesRepository acoesRepository;
+	
+	public List<AcaoDTO> getAll(String codigo) {
+		BigDecimal precoDolar = BigDecimal.ONE;
+		
+		List<Acao> acoes = new ArrayList<>();
+		if (codigo != null) {
+			acoes.addAll(acoesRepository.findByCodigo(codigo));
+		} else {
+			acoes.addAll(acoesRepository.findAll());
+		}
+		return acoes.stream().map(o -> AcaoDTO.from(o, precoDolar)).toList();
+	}
+	
+	public Acao save(Acao acao) {
+		return acoesRepository.save(acao);
+	}
+	
+	public void delete(UUID id) {
+		acoesRepository.deleteById(id);
+	}
+}

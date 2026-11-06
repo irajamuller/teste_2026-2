@@ -1,0 +1,21 @@
+package com.finance.cotacoes.service;
+
+import java.math.BigDecimal;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
+
+@Service
+public class CotacoesService {
+	
+	@Autowired
+	private RestTemplate restTemplate;
+	
+	private static final String URL_DOLAR = "https://br.dolarapi.com/v1/cotacoes/usd";
+	
+	public BigDecimal get() {
+		Object cotacao = restTemplate.getForObject(URL_DOLAR, Object.class);
+	}
+	
+}

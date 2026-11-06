@@ -1,0 +1,7 @@
+package com.finance.cotacoes.dto;
+
+import java.math.BigDecimal;
+
+public class CotacaoDTO {
+	private BigDecimal venda;
+}

@@ -1,0 +1,6 @@
+server.port=8005
+
+spring.application.name=GATEWAY-SERVICE
+
+eureka.client.register-with-eureka=false
+eureka.client.fetch-registry=false

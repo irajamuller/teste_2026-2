@@ -1,0 +1,8 @@
+package com.finance.acoes.repository;
+
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class AcoesRepository {
+
+}

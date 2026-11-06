@@ -1,0 +1,13 @@
+package com.finance.acoes.model;
+
+import jakarta.persistence.Entity;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+
+@Entity
+@Builder
+@Getter @Setter
+public class Acao {
+
+}

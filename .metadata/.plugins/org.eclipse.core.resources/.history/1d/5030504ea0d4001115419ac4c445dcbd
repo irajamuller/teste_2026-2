@@ -1,0 +1,14 @@
+package com.finance.cotacoes.service;
+
+import java.math.BigDecimal;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class CotacoesService {
+	
+	public BigDecimal getAll() {
+		
+	}
+	
+}

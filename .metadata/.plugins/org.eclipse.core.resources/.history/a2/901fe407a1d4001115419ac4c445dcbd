@@ -1,0 +1,5 @@
+package com.finance.cotacoes.dto;
+
+public class CotacaoDTO {
+
+}

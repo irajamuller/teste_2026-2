@@ -1,0 +1,34 @@
+package com.finance.gateway;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.cloud.gateway.route.RouteLocator;
+import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
+
+@Configuration
+public class GatewayRoutes {
+
+	@Bean
+	public RouteLocator customRouteLocator(RouteLocatorBuilder builder) {
+        return builder.routes()
+        		// CEP Service
+                .route("CEP_SERVICE", r -> r.path("/cep/**")
+                        .filters(f -> f.circuitBreaker(config -> config
+                                .setName("cepServiceCircuitBreaker")
+                                .setFallbackUri("forward:/fallback/cep")
+                                .setRouteId("CEP_SERVICE")
+                        ))
+                        .uri("lb://CEP-SERVICE")
+                )
+                // MUNICIPIO Service
+                .route("MUNICIPIO_SERVICE", r -> r.path("/municipio/**")
+                        .filters(f -> f.circuitBreaker(config -> config
+                                .setName("municipioServiceCircuitBreaker")
+                                .setFallbackUri("forward:/fallback/municipio")
+                                .setRouteId("MUNICIPIO_SERVICE")
+                        ))
+                        .uri("lb://MUNICIPIO-SERVICE")
+                )
+                .build();
+    }
+}

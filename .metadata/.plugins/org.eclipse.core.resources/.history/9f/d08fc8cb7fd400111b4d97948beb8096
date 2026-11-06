@@ -1,0 +1,23 @@
+package com.finance.acoes.dto;
+
+import java.math.BigDecimal;
+import java.util.UUID;
+
+import com.finance.acoes.model.Acao;
+
+import lombok.Data;
+
+@Data
+public class AcaoDTO {
+	private UUID id;
+	private String nome;
+	private String codigo;
+	private Integer qtdeAcoes;
+	private BigDecimal precoUnitario;
+	private BigDecimal vlrReal;
+	private BigDecimal vlrDolar;
+	
+	public void from(Acao acao, BigDecimal precoDolar) {
+		
+	}
+}

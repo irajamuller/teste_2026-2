@@ -1,0 +1,16 @@
+package com.finance.cotacoes.service;
+
+import java.math.BigDecimal;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class CotacoesService {
+	
+	private static final String URL_DOLAR = "https://br.dolarapi.com/v1/cotacoes/usd";
+	
+	public BigDecimal get() {
+		
+	}
+	
+}

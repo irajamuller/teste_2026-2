@@ -1,0 +1,17 @@
+package com.finance.acoes.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.finance.acoes.repository.AcoesRepository;
+
+@Service
+public class AcoesService {
+	
+	@Autowired
+	private AcoesRepository acoesRepository;
+	
+	public List<Acao> getAll() {
+		
+	}
+}

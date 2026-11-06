@@ -1,0 +1,32 @@
+package com.finance.acoes.service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.finance.acoes.dto.AcaoDTO;
+import com.finance.acoes.model.Acao;
+import com.finance.acoes.repository.AcoesRepository;
+
+@Service
+public class AcoesService {
+	
+	@Autowired
+	private AcoesRepository acoesRepository;
+	
+	public List<AcaoDTO> getAll(String codigo) {
+		List<Acao> acoes = new ArrayList<>();
+		if (codigo != null) {
+			acoes.addAll(acoesRepository.findByCodigo(codigo));
+		} else {
+			acoes.addAll(acoesRepository.findAll());
+		}
+		List<AcaoDTO> acoesDTO = new ArrayList<AcaoDTO>();
+		for (Acao acao : acoes) {
+			acoesDTO.add(AcaoDTO.from(acoes, ));
+		}
+		return acoesDTO;
+	}
+}
